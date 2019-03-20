@@ -41,4 +41,16 @@ public class BookController {
         int res = bookService.addBook(title,price);
         return resWrapper.wrapResultData(res,null);
     }
+
+    @RequestMapping(value = "/pageList", method = RequestMethod.POST)
+    public HashMap<String,Object> getPageBooks(@RequestParam(value = "pageIdx") int pageIdx,
+                                               @RequestParam(value = "pageSize") int pageSize) {
+        List<Book> dataList = bookService.getPageBook(pageIdx,pageSize);
+        int res = 1;
+        if (dataList == null) {
+            res = 0;
+        }
+        return resWrapper.wrapResultData(res,dataList);
+    }
+
 }

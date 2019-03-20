@@ -15,6 +15,9 @@ public interface BookMapper {
     @Select("select id as bookId, title as bookTitle,price,publishDate from books")
     List<Book> getBookList();
 
+    @Select("select id as bookId, title as bookTitle,price,publishDate from books limit #{pageCount},#{pageSize}")
+    List<Book> getPageBook(@Param("pageCount") int pageCount, @Param("pageSize") int pageSize);
+
     @Select("select id as bookId, title as bookTitle,price,publishDate from books where id = #{id} ")
     Book findBook(@Param("id") int id);
 

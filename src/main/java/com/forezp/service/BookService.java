@@ -18,6 +18,11 @@ public class BookService {
         return bookMapper.getBookList();
     }
 
+    public List<Book>getPageBook(int pageIdx, int pageSize) {
+        int pageCount = pageIdx*pageSize;
+        return bookMapper.getPageBook(pageCount,pageSize);
+    }
+
     public Book findBookById(int id) {
         return bookMapper.findBook(id);
     }
