@@ -94,6 +94,15 @@
 			<version>0.7.0</version>
 		</dependency>
 
+        <!--restdoc-->
+        <dependency>
+            <groupId>org.springframework.restdocs</groupId>
+            <artifactId>spring-restdocs-mockmvc</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+
+
     </dependencies>
 
 	<build>
@@ -103,6 +112,8 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+
+
 	</build>
 
 
