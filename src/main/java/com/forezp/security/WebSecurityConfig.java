@@ -1,4 +1,4 @@
-package com.forezp.config;
+package com.forezp.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -15,22 +15,26 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers(HttpMethod.POST,"/login").permitAll()
-                .antMatchers("/hello").hasAuthority("AUTH_WRITE")
-                .antMatchers("/world").hasRole("ADMIN")
-                .anyRequest().authenticated()
-                .and()
-                .addFilterBefore(new JWtL)
+//        http.csrf().disable()
+//                .authorizeRequests()
+//                .antMatchers("/").permitAll()
+//                .antMatchers(HttpMethod.POST,"/login").permitAll()
+//                .antMatchers("/hello").hasAuthority("AUTH_WRITE")
+//                .antMatchers("/world").hasRole("ADMIN")
+//                .anyRequest().authenticated()
+//                .and()
+//                .addFilterBefore(new JWTLoginFilter("/login", authenticationManager()),
+//                        UsernamePasswordAuthenticationFilter.class)
+//                // 添加一个过滤器验证其他请求的Token是否合法
+//                .addFilterBefore(new JWTAuthenticationFilter(),
+//                        UsernamePasswordAuthenticationFilter.class);
 
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // 使用自定义身份验证组件
-        auth.authenticationProvider(new CustomAuthenticationProvider());
+//        auth.authenticationProvider(new CustomAuthenticationProvider());
 
     }
 }
