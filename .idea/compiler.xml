@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springboot-mybatis" />
+        <module name="spring-zhou" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="springboot-mybatis" target="1.8" />
+      <module name="spring-zhou" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
